@@ -30,7 +30,6 @@
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-      this.SpreadsheetUrlTextBox = new System.Windows.Forms.TextBox();
       this.SpreadsheetUrlLabel = new System.Windows.Forms.Label();
       this.GeneratePdfButton = new System.Windows.Forms.Button();
       this.IncludeTodayCheckBox = new System.Windows.Forms.CheckBox();
@@ -43,18 +42,9 @@
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.OutputFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.LogTextBox = new System.Windows.Forms.RichTextBox();
+      this.SpreadsheetUrlRichTextBox = new System.Windows.Forms.RichTextBox();
       this.OptionsGroupBox.SuspendLayout();
       this.SuspendLayout();
-      // 
-      // SpreadsheetUrlTextBox
-      // 
-      this.SpreadsheetUrlTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.SpreadsheetUrlTextBox.Location = new System.Drawing.Point(40, 61);
-      this.SpreadsheetUrlTextBox.Margin = new System.Windows.Forms.Padding(20, 5, 5, 5);
-      this.SpreadsheetUrlTextBox.Name = "SpreadsheetUrlTextBox";
-      this.SpreadsheetUrlTextBox.Size = new System.Drawing.Size(517, 31);
-      this.SpreadsheetUrlTextBox.TabIndex = 0;
-      this.SpreadsheetUrlTextBox.TextChanged += new System.EventHandler(this.SpreadsheetUrlTextBox_TextChanged);
       // 
       // SpreadsheetUrlLabel
       // 
@@ -71,7 +61,7 @@
       this.GeneratePdfButton.AutoSize = true;
       this.GeneratePdfButton.BackColor = System.Drawing.Color.DeepSkyBlue;
       this.GeneratePdfButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.GeneratePdfButton.Location = new System.Drawing.Point(74, 499);
+      this.GeneratePdfButton.Location = new System.Drawing.Point(74, 634);
       this.GeneratePdfButton.Margin = new System.Windows.Forms.Padding(60, 11, 10, 11);
       this.GeneratePdfButton.Name = "GeneratePdfButton";
       this.GeneratePdfButton.Size = new System.Drawing.Size(102, 38);
@@ -93,7 +83,6 @@
       this.IncludeTodayCheckBox.Text = "今日を出力に含める";
       this.toolTip1.SetToolTip(this.IncludeTodayCheckBox, "今日のデータを出力内容に含めるかどうかを決めます。");
       this.IncludeTodayCheckBox.UseVisualStyleBackColor = true;
-      this.IncludeTodayCheckBox.CheckedChanged += new System.EventHandler(this.IncludeTodayCheckBox_CheckedChanged);
       // 
       // OptionsGroupBox
       // 
@@ -103,7 +92,7 @@
       this.OptionsGroupBox.Controls.Add(this.PaperSizeComboBox);
       this.OptionsGroupBox.Controls.Add(this.BrowseOutputFolderButton);
       this.OptionsGroupBox.Controls.Add(this.IncludeTodayCheckBox);
-      this.OptionsGroupBox.Location = new System.Drawing.Point(30, 125);
+      this.OptionsGroupBox.Location = new System.Drawing.Point(30, 260);
       this.OptionsGroupBox.Margin = new System.Windows.Forms.Padding(10, 22, 10, 11);
       this.OptionsGroupBox.Name = "OptionsGroupBox";
       this.OptionsGroupBox.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
@@ -153,7 +142,6 @@
       this.PaperSizeComboBox.Name = "PaperSizeComboBox";
       this.PaperSizeComboBox.Size = new System.Drawing.Size(121, 31);
       this.PaperSizeComboBox.TabIndex = 6;
-      this.PaperSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.PaperSizeComboBox_SelectedIndexChanged);
       // 
       // BrowseOutputFolderButton
       // 
@@ -173,7 +161,7 @@
       // 
       this.LogTextBox.BackColor = System.Drawing.Color.White;
       this.LogTextBox.Font = new System.Drawing.Font("Noto Sans JP", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-      this.LogTextBox.Location = new System.Drawing.Point(191, 424);
+      this.LogTextBox.Location = new System.Drawing.Point(191, 559);
       this.LogTextBox.Margin = new System.Windows.Forms.Padding(5);
       this.LogTextBox.Name = "LogTextBox";
       this.LogTextBox.ReadOnly = true;
@@ -183,18 +171,26 @@
       this.LogTextBox.Text = "";
       this.LogTextBox.WordWrap = false;
       // 
+      // SpreadsheetUrlRichTextBox
+      // 
+      this.SpreadsheetUrlRichTextBox.Location = new System.Drawing.Point(55, 58);
+      this.SpreadsheetUrlRichTextBox.Name = "SpreadsheetUrlRichTextBox";
+      this.SpreadsheetUrlRichTextBox.Size = new System.Drawing.Size(502, 177);
+      this.SpreadsheetUrlRichTextBox.TabIndex = 6;
+      this.SpreadsheetUrlRichTextBox.Text = "";
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoSize = true;
       this.BackColor = System.Drawing.Color.White;
-      this.ClientSize = new System.Drawing.Size(603, 570);
+      this.ClientSize = new System.Drawing.Size(603, 705);
+      this.Controls.Add(this.SpreadsheetUrlRichTextBox);
       this.Controls.Add(this.LogTextBox);
       this.Controls.Add(this.OptionsGroupBox);
       this.Controls.Add(this.GeneratePdfButton);
       this.Controls.Add(this.SpreadsheetUrlLabel);
-      this.Controls.Add(this.SpreadsheetUrlTextBox);
       this.Font = new System.Drawing.Font("Noto Sans JP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -211,8 +207,6 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.TextBox SpreadsheetUrlTextBox;
     private System.Windows.Forms.Label SpreadsheetUrlLabel;
     private System.Windows.Forms.Button GeneratePdfButton;
     private System.Windows.Forms.CheckBox IncludeTodayCheckBox;
@@ -225,6 +219,7 @@
     private System.Windows.Forms.TextBox OutputFolderTextbox;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.RichTextBox LogTextBox;
+    private System.Windows.Forms.RichTextBox SpreadsheetUrlRichTextBox;
   }
 }
 

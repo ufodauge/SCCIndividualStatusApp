@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SCCIndividualStatusApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -35,6 +36,31 @@ namespace SCCIndividualStatusApp
       StudentNumber = studentNumber;
       ClassNumber = classNumber;
       AttendanceStatusList = new List<AttendanceStatus>();
+    }
+
+    public string GetDisplayName()
+    {
+      return $"{ClassNumber}組{StudentNumber}番" +
+             $"_{Name}";
+    }
+
+    public string GetIdentificator()
+    {
+      return $"{ClassNumber}-{StudentNumber}";
+    }
+
+    public StudentData MergeStudentData(StudentData source)
+    {
+      var result = new StudentData(
+        source.Name,
+        source.StudentNumber,
+        source.ClassNumber);
+
+      result
+        .AttendanceStatusList
+        .AddRange(source.AttendanceStatusList);
+
+      return result;
     }
 
     public double GetTestResultAverage()

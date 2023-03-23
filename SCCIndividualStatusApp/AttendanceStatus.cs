@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SCCIndividualStatusApp
 {
-  internal class AttendanceStatus
+  internal class AttendanceRecord
   {
     /// <summary>
     /// 日付
@@ -16,7 +13,7 @@ namespace SCCIndividualStatusApp
     /// <summary>
     /// 出席情報
     /// </summary>
-    public List<Boolean> StatusList { get; set; }
+    public List<bool> StatusList { get; set; }
 
     /// <summary>
     /// テストの点数

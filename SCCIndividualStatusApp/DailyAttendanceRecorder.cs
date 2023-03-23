@@ -5,28 +5,22 @@ namespace SCCIndividualStatusApp
   /// <summary>
   /// 各日付ごとの情報
   /// </summary>
-  internal class DateStatus
+  internal class DailyAttendanceRecorder
   {
     /// <summary>
     /// 日付
     /// </summary>
-    public DateTime Date { get; private set; }
+    public DateTime Date { get; }
 
     /// <summary>
     /// その日に出席を取った回数
     /// </summary>
-    public uint DataCount { get; set; }
+    public uint AttendanceCheckCounter { get; set; }
 
-    public DateStatus(DateTime date, uint dataCount)
+    public DailyAttendanceRecorder(DateTime date, uint attendanceCheckCounter = 0)
     {
       Date = date;
-      DataCount = dataCount;
-    }
-
-    public DateStatus(DateTime date)
-    {
-      Date = date;
-      DataCount = 0;
+      AttendanceCheckCounter = attendanceCheckCounter;
     }
   }
 }
